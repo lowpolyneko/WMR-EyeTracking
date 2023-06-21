@@ -18,8 +18,8 @@ public class GazeTest : MonoBehaviour
 
     void LogGazeDirectionOrigin()
     {
-        Debug.Log("Gase is looking in direction: " + CoreServices.InputSystem.GazeProvider.GazeDirection);
+        Debug.Log("Gaze is looking in direction: " + CoreServices.InputSystem.GazeProvider.GazeDirection);
 
-        Debug.Log("Gaze Origin: " + CoreServices.InputSystem.GazeProvider.GazeDirection);
+        Debug.Log("Gaze Origin: " + CoreServices.InputSystem.GazeProvider.GazeOrigin);
     }
 }
