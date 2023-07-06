@@ -1,3 +1,5 @@
+using Microsoft.MixedReality.Toolkit;
+using Microsoft.MixedReality.Toolkit.Input;
 using Microsoft.MixedReality.Toolkit.Utilities;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,6 +17,15 @@ public static class GestureRecognition
 {
     private const float PinchThreshold = 0.7f;
     private const float GrabThreshold = 0.4f;
+
+    public static bool IsHandTracked()
+    {
+        var handJointService = CoreServices.GetInputSystemDataProvider<IMixedRealityHandJointService>();
+        if (handJointService != null)
+            return handJointService.IsHandTracked(Handedness.Left) || handJointService.IsHandTracked(Handedness.Right);
+
+        return false;
+    }
 
     public static bool IsPinching()
     {

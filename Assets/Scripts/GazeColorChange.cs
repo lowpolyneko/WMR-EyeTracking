@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GazeColorChange : MonoBehaviour
 {
-    Renderer renderer;
+    private new Renderer renderer;
 
     // Start is called before the first frame update
     void Start()

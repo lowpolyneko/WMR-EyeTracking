@@ -25,6 +25,11 @@ public class GestureHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        // Edge case for when hand is not tracked
+        if (!GestureRecognition.IsHandTracked())
+            return;
+
         GestureType events = GestureType.None;
         if (GestureRecognition.IsPinching())
             events |= GestureType.Pinch;
