@@ -18,5 +18,6 @@ public class PinchAndGaze : MonoBehaviour
     public void OnPinch()
     {
         Debug.Log("Detected Gesture!");
+        GetComponent<Renderer>().material.color = Color.black;
     }
 }
