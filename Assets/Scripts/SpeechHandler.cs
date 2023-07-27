@@ -15,6 +15,9 @@ public class SpeechHandler : MonoBehaviour, IMixedRealitySpeechHandler
             case "cube": //spawn cube
                 SpawnCube();
                 break;
+            default:
+                Debug.Log("Unrecognized command " + eventData.Command.Keyword);
+                break;
         }
     }
 
