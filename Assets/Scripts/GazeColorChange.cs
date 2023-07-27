@@ -6,12 +6,14 @@ using UnityEngine;
 public class GazeColorChange : MonoBehaviour
 {
     private Renderer objRenderer;
+    private Rigidbody objRigidBody;
     private bool pinchToggle = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        objRenderer = GetComponent<Renderer>();    
+        objRenderer = GetComponent<Renderer>();
+        objRigidBody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -36,5 +38,6 @@ public class GazeColorChange : MonoBehaviour
         Debug.Log("Detected Gesture!");
         pinchToggle = !pinchToggle; // toggle so color is actually set
         objRenderer.material.color = Color.black;
+        objRigidBody.useGravity = !pinchToggle;
     }
 }
