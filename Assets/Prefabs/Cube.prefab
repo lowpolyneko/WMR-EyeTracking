@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 4171074719464212099}
   - component: {fileID: 4171074719464212098}
   - component: {fileID: 7960137616401027130}
-  - component: {fileID: 3781298043888573332}
   - component: {fileID: 312396201783693774}
   - component: {fileID: 9006558987425106705}
   m_Layer: 0
@@ -187,18 +186,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbbdff1dc08e4c9418613a130e9dc7ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3781298043888573332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4171074719464212221}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fbf9817282ecdf4d9605ff137d2da24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &312396201783693774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,8 +203,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 3781298043888573332}
-          m_TargetAssemblyTypeName: PinchAndGaze, Assembly-CSharp
+        - m_Target: {fileID: 7960137616401027130}
+          m_TargetAssemblyTypeName: GazeColorChange, Assembly-CSharp
           m_MethodName: OnPinch
           m_Mode: 1
           m_Arguments:

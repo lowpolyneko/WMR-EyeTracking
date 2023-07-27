@@ -1,3 +1,4 @@
+using Microsoft.MixedReality.Toolkit;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -31,12 +32,22 @@ public class GestureHandler : MonoBehaviour
 
         GestureType events = GestureType.None;
         if (GestureRecognition.IsPinching())
+        {
+            Debug.Log("Pinch Registered");
             events |= GestureType.Pinch;
+        }
 
         foreach (GestureEvent e in listeners)
         {
-            if ((e.action & events) != 0)
-                e.callback.Invoke();
+            // Only send callback if item is being looked at
+            if (CoreServices.InputSystem.GazeProvider.GazeTarget == gameObject)
+            {
+                Debug.Log(gameObject + " is being observed!");
+
+                // Check for corrisponding event
+                if ((e.action & events) == events)
+                    e.callback.Invoke();
+            }
         }
     }
 }
