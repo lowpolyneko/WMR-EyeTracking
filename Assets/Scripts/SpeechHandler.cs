@@ -1,24 +1,33 @@
 using Microsoft.MixedReality.Toolkit;
 using Microsoft.MixedReality.Toolkit.Input;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
+public struct VoiceCommand
+{
+    public string keyword;
+    public GameObject prefab;
+}
+
 public class SpeechHandler : MonoBehaviour, IMixedRealitySpeechHandler
 {
-    public GameObject cubePrefab;
+    [SerializeField]
+    public List<VoiceCommand> commands;
 
     public void OnSpeechKeywordRecognized(SpeechEventData eventData)
     {
-        switch (eventData.Command.Keyword.ToLower())
+        foreach (VoiceCommand c in commands)
         {
-            case "cube": //spawn cube
-                SpawnCube();
-                break;
-            default:
-                Debug.Log("Unrecognized command " + eventData.Command.Keyword);
-                break;
+            if (eventData.Command.Keyword.ToLower() == c.keyword) {
+                Instantiate(c.prefab, CoreServices.InputSystem.GazeProvider.GazeDirection, Quaternion.identity);
+                return;    
+            }
         }
+
+         Debug.Log("Unrecognized command " + eventData.Command.Keyword);
     }
 
     // Start is called before the first frame update
@@ -31,13 +40,5 @@ public class SpeechHandler : MonoBehaviour, IMixedRealitySpeechHandler
     void Update()
     {
         
-    }
-
-    void SpawnCube()
-    {
-        if (!cubePrefab)
-            return;
-
-        Instantiate(cubePrefab, CoreServices.InputSystem.GazeProvider.GazeDirection, Quaternion.identity);
     }
 }
