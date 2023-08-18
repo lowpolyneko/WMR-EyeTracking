@@ -17,6 +17,8 @@ public class GestureHandler : MonoBehaviour
     [SerializeField]
     public List<GestureEvent> listeners;
 
+    private bool hasPinched = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,10 +33,15 @@ public class GestureHandler : MonoBehaviour
             return;
 
         GestureType events = GestureType.None;
-        if (GestureRecognition.IsPinching())
+        if (GestureRecognition.IsPinching() && !hasPinched)
         {
             Debug.Log("Pinch Registered");
+            hasPinched = true;
             events |= GestureType.Pinch;
+        }
+        else if (!GestureRecognition.IsPinching() && hasPinched)
+        {
+            hasPinched = false;
         }
 
         foreach (GestureEvent e in listeners)
@@ -45,7 +52,7 @@ public class GestureHandler : MonoBehaviour
                 Debug.Log(gameObject + " is being observed!");
 
                 // Check for corrisponding event
-                if ((e.action & events) == events)
+                if ((e.action ^ events) == 0)
                     e.callback.Invoke();
             }
         }
