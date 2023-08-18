@@ -4,30 +4,29 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [Serializable]
 public struct VoiceCommand
 {
     public string keyword;
-    public GameObject prefab;
+    public UnityEvent callback;
 }
 
 public class SpeechHandler : MonoBehaviour, IMixedRealitySpeechHandler
 {
     [SerializeField]
-    public List<VoiceCommand> commands;
+    public List<VoiceCommand> listeners;
 
     public void OnSpeechKeywordRecognized(SpeechEventData eventData)
     {
-        foreach (VoiceCommand c in commands)
+        foreach (VoiceCommand c in listeners)
         {
             if (eventData.Command.Keyword.ToLower() == c.keyword) {
-                Instantiate(c.prefab, CoreServices.InputSystem.GazeProvider.GazeDirection, Quaternion.identity);
+                c.callback.Invoke();
                 return;    
             }
         }
-
-         Debug.Log("Unrecognized command " + eventData.Command.Keyword);
     }
 
     // Start is called before the first frame update

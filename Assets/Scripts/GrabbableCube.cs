@@ -5,9 +5,13 @@ using UnityEngine;
 
 public class GrabbableCube : MonoBehaviour
 {
+    private Renderer myRenderer;
+
     // Start is called before the first frame update
     void Start()
     {
+        myRenderer = GetComponent<Renderer>();
+
         // Set text on cube to be the name of the object
         GetComponentInChildren<TextMeshPro>().text = name;
     }
@@ -16,5 +20,15 @@ public class GrabbableCube : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void OnGrabStart()
+    {
+        myRenderer.material.color = Color.green;
+    }
+
+    public void OnGrabEnd()
+    {
+        myRenderer.material.color = Color.white;
     }
 }
