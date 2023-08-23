@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class RemoteInteract : MonoBehaviour
 {
+    public bool isTriggered;
     public Transform trackedObject;
     public Vector3 offset;
 
@@ -32,10 +33,12 @@ public class RemoteInteract : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         trackedRenderer.material.color = Color.green;
+        isTriggered = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
         trackedRenderer.material.color = Color.white;
+        isTriggered = false;
     }
 }
