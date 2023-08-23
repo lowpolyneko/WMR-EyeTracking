@@ -6,8 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Scenes/SceneSelector.unity
+    guid: 7bd8d3122ba660d44a1ef70038cbdfb9
+  - enabled: 1
+    path: Assets/Scenes/HandInteractDemo.unity
+    guid: 0b59c409e84650c4ea53b5c57b51e488
+  - enabled: 1
+    path: Assets/Scenes/EyeInteractDemo.unity
+    guid: 55a55452149181a4d87c570893ab195f
+  - enabled: 1
+    path: Assets/Scenes/VoiceInteractDemo.unity
+    guid: ef8216b8dd1baf841886b366820c75fe
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 1bfbf5739a47e8c4e9f1f35e5777705e, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 5de09675d7054774cb1b940bcc806295, type: 2}

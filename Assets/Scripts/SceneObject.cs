@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SceneObject : MonoBehaviour
 {
@@ -14,6 +15,11 @@ public class SceneObject : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void OnSceneSwitch(string name)
+    {
+        SceneManager.LoadScene(name);
     }
 
     public void OnKeywordQuit()
