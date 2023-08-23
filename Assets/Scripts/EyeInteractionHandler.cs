@@ -36,7 +36,7 @@ public class EyeInteractionHandler : MonoBehaviour
         }
 
         if (target.name == "RemoteInteract")
-            selected.transform.position = target.transform.position;
+            selected.transform.position = target.transform.position + wildPlaceOffset;
         else
             selected.transform.position = CoreServices.InputSystem.GazeProvider.HitPosition + wildPlaceOffset;
 
@@ -69,7 +69,7 @@ public class EyeInteractionHandler : MonoBehaviour
         if (selected)
         {
             if (target.name == "RemoteInteract")
-                selected.transform.position = target.transform.position;
+                selected.transform.position = target.transform.position + wildPlaceOffset;
             else
                 selected.transform.position = CoreServices.InputSystem.GazeProvider.HitPosition + wildPlaceOffset;
 

@@ -15,7 +15,7 @@ public enum GestureType
 
 public static class GestureRecognition
 {
-    private const float PinchThreshold = 0.7f;
+    private const float PinchThreshold = 0.9f;
     private const float GrabThreshold = 0.4f;
 
     public static bool IsHandTracked()

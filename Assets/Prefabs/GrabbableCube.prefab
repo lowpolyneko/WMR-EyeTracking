@@ -282,6 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aca988c98cc2b04a877bb07f92c7f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTriggered: 0
   trackedObject: {fileID: 8711467962175259463}
   offset: {x: 0, y: 0.2, z: 0}
 --- !u!1 &6792825102322717300
@@ -451,7 +452,7 @@ MonoBehaviour:
   manipulationType: 3
   twoHandedManipulationType: 7
   allowFarManipulation: 1
-  useForcesForNearManipulation: 0
+  useForcesForNearManipulation: 1
   oneHandRotationModeNear: 1
   oneHandRotationModeFar: 1
   releaseBehavior: 3
