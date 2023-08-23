@@ -24,17 +24,52 @@ public class EyeInteractionHandler : MonoBehaviour
     {
         GameObject target = CoreServices.InputSystem.GazeProvider.GazeTarget;
 
-        if (!selected && target.GetComponent<GrabbableCube>())
+        if (!selected)
         {
-            selected = target;
-            selected.GetComponent<GrabbableCube>().OnGrabStart();
+            if (target.GetComponent<GrabbableCube>())
+            {
+                selected = target;
+                selected.GetComponent<GrabbableCube>().OnGrabStart();
+            }
             return;
         }
 
         if (target.name == "RemoteInteract")
             selected.transform.position = target.transform.position;
+        selected.GetComponent<GrabbableCube>().OnGrabEnd();
+        selected = null;
+    }
+
+    public void OnKeywordSelect()
+    {
+        GameObject target = CoreServices.InputSystem.GazeProvider.GazeTarget;
+
+        if (!selected)
+        {
+            if (target.GetComponent<GrabbableCube>())
+            {
+                selected = target;
+                selected.GetComponent<GrabbableCube>().OnGrabStart();
+            }
+            return;
+        }
+
+        selected.GetComponent<GrabbableCube>().OnGrabEnd();
+        selected = null;
+    }
+
+    public void OnKeywordPlace()
+    {
+        GameObject target = CoreServices.InputSystem.GazeProvider.GazeTarget;
+
         if (selected)
+        {
+            if (target.name == "RemoteInteract")
+                selected.transform.position = target.transform.position;
+
             selected.GetComponent<GrabbableCube>().OnGrabEnd();
+        }
+
         selected = null;
     }
 }
