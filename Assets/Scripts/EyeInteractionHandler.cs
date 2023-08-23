@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class EyeInteractionHandler : MonoBehaviour
 {
+    public Vector3 wildPlaceOffset;
+
     private GameObject selected;
 
     // Start is called before the first frame update
@@ -36,6 +38,9 @@ public class EyeInteractionHandler : MonoBehaviour
 
         if (target.name == "RemoteInteract")
             selected.transform.position = target.transform.position;
+        else
+            selected.transform.position = CoreServices.InputSystem.GazeProvider.HitPosition + wildPlaceOffset;
+
         selected.GetComponent<GrabbableCube>().OnGrabEnd();
         selected = null;
     }
@@ -66,6 +71,8 @@ public class EyeInteractionHandler : MonoBehaviour
         {
             if (target.name == "RemoteInteract")
                 selected.transform.position = target.transform.position;
+            else
+                selected.transform.position = CoreServices.InputSystem.GazeProvider.HitPosition + wildPlaceOffset;
 
             selected.GetComponent<GrabbableCube>().OnGrabEnd();
         }
