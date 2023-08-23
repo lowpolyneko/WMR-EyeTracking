@@ -1,3 +1,4 @@
+using Microsoft.MixedReality.Toolkit;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,19 +8,22 @@ public class RemoteInteract : MonoBehaviour
     public Transform trackedObject;
     public Vector3 offset;
 
-    private BoxCollider myCollider;
+    private Renderer myRenderer;
     private Renderer trackedRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
-        myCollider = GetComponent<BoxCollider>();
+        myRenderer = GetComponent<Renderer>();
         trackedRenderer = trackedObject.GetComponent<Renderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        // only show if looking at
+        myRenderer.enabled = CoreServices.InputSystem.GazeProvider.GazeTarget == gameObject;
+
         // track whatever object the remote interact belongs to
         transform.position = trackedObject.position + offset;
     }

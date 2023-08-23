@@ -9,6 +9,7 @@ using UnityEngine.Events;
 public struct GestureEvent
 {
     public GestureType action;
+    public bool isGlobal;
     public UnityEvent callback;
 }
 
@@ -47,10 +48,8 @@ public class GestureHandler : MonoBehaviour
         foreach (GestureEvent e in listeners)
         {
             // Only send callback if item is being looked at
-            if (CoreServices.InputSystem.GazeProvider.GazeTarget == gameObject)
+            if (e.isGlobal || CoreServices.InputSystem.GazeProvider.GazeTarget == gameObject)
             {
-                Debug.Log(gameObject + " is being observed!");
-
                 // Check for corrisponding event
                 if ((e.action ^ events) == 0)
                     e.callback.Invoke();
