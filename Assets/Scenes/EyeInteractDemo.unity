@@ -214,8 +214,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 136566300}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 0, y: -0.5, z: 1.5}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -809,9 +809,9 @@ GameObject:
   - component: {fileID: 2070918175}
   - component: {fileID: 2070918177}
   - component: {fileID: 2070918178}
-  - component: {fileID: 2070918179}
   - component: {fileID: 2070918180}
   - component: {fileID: 2070918181}
+  - component: {fileID: 2070918182}
   m_Layer: 0
   m_Name: SceneObject
   m_TagString: Untagged
@@ -859,36 +859,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wildPlaceOffset: {x: 0, y: 0.2, z: 0}
---- !u!114 &2070918179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2070918174}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0820b16d4db220144a68adf3c3c9a472, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  listeners:
-  - action: 1
-    isGlobal: 1
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 2070918178}
-          m_TargetAssemblyTypeName: EyeInteractionHandler, Assembly-CSharp
-          m_MethodName: OnPinchStart
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!114 &2070918180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -939,6 +909,42 @@ MonoBehaviour:
           m_CallState: 2
   persistentKeywords: 0
   speechConfirmationTooltipPrefab: {fileID: 0}
+--- !u!114 &2070918182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070918174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19fe7721a0743104baae38e46537705b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFocusRequired: 0
+  InputAction:
+    id: 13
+    description: Index Finger Pose
+    axisConstraint: 7
+  MarkEventsAsUsed: 0
+  OnInputActionStarted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2070918178}
+        m_TargetAssemblyTypeName: EyeInteractionHandler, Assembly-CSharp
+        m_MethodName: OnPinchStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnInputActionEnded:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2114974248 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5893855932407272771, guid: d75ad3714bae4af45b8dd9612d584426, type: 3}
