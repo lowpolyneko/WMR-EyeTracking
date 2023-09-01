@@ -38,7 +38,7 @@ public class RemoteInteract : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        trackedRenderer.material.color = Color.white;
+        trackedRenderer.material.color = Color.magenta;
         isTriggered = false;
     }
 }
