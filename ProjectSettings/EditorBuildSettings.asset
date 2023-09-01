@@ -17,6 +17,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/VoiceInteractDemo.unity
     guid: 6f0adaa344bdfc54eb86860ef5c6451c
+  - enabled: 1
+    path: Assets/Scenes/HeadInteractDemo.unity
+    guid: 60fe1b050245b474b993528b9f8b6fee
+  - enabled: 1
+    path: Assets/Scenes/HeadVoiceInteractDemo.unity
+    guid: ef8216b8dd1baf841886b366820c75fe
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 1bfbf5739a47e8c4e9f1f35e5777705e, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 5de09675d7054774cb1b940bcc806295, type: 2}
