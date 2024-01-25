@@ -19,6 +19,8 @@ public class GrabbableCube : MonoBehaviour
 
         // Set text on cube to be the name of the object
         GetComponentInChildren<TextMeshPro>().text = transform.parent.name;
+
+        myRenderer.material.color = Color.magenta;
     }
 
     // Update is called once per frame
@@ -37,7 +39,7 @@ public class GrabbableCube : MonoBehaviour
 
     public void OnGrabEnd()
     {
-        myRenderer.material.color = Color.white;
+        myRenderer.material.color = Color.magenta;
 
         myAudioSource.clip = dropSFX;
         myAudioSource.Play();
@@ -53,6 +55,6 @@ public class GrabbableCube : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (other.name == "RemoteInteract")
-            myRenderer.material.color = Color.white;
+            myRenderer.material.color = Color.magenta;
     }
 }
